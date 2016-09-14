@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,15 +31,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  .state('Login', {
+       controller: 'loginCtrl',
+       templateUrl: 'templates/login.html',
+       url:''
+    })
+
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
-  .state('tab.login', {
+/*  .state('tab.login', {
     url: '/login',
     views: {
       'login': {
@@ -47,7 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'loginCtrl'
       }
     }
-  })
+  })*/
 
   // Each tab has its own nav history stack:
 

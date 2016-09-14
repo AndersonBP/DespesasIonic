@@ -1,3 +1,10 @@
+var config =
+{
+    headers : {
+        'Content-Type': 'application/json;charset=utf-8;'
+        }
+}
+
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
@@ -25,4 +32,31 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-});
+})
+
+.controller('loginCtrl', function($scope, $http, $state) {
+  $scope.settings = {
+    enableFriends: true
+  };
+  $scope.user="";
+  var headers = {
+    'Content-Type' : config.headers.Content-Type,
+    'Device' : window.device.uuid
+  };
+
+  var Url = "http://apidespesas.azurewebsites.net/api/Acesso/VerificaLogin";
+
+  $scope.signIn = function () {
+
+     $http.post(Url,headers, $scope.user)
+                .success(function (data, status, headers, config) {
+      $state.go('tab.dash');
+                })
+                .error(function (data, status, header, config) {
+                    $scope.ResponseDetails = "Data: " + data +
+                        "<hr />status: " + status +
+                        "<hr />headers: " + header +
+                        "<hr />config: " + config;
+                });
+              };
+ });

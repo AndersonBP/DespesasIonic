@@ -1,17 +1,55 @@
-<ion-view view-title="Dashboard">
+<ion-view view-title="Despesas">
   <ion-content class="padding">
-    <h2>Welcome to Ionic</h2>
-    <p>
-    This is the Ionic starter for tabs-based apps. For other starters and ready-made templates, check out the <a href="http://market.ionic.io/starters" target="_blank">Ionic Market</a>.
-    </p>
-    <p>
-      To edit the content of each tab, edit the corresponding template file in <code>www/templates/</code>. This template is <code>www/templates/tab-dash.html</code>
-    </p>
-    <p>
-    If you need help with your app, join the Ionic Community on the <a href="http://forum.ionicframework.com" target="_blank">Ionic Forum</a>. Make sure to <a href="http://twitter.com/ionicframework" target="_blank">follow us</a> on Twitter to get important updates and announcements for Ionic developers.
-    </p>
-    <p>
-      For help sending push notifications, join the <a href="https://apps.ionic.io/signup" target="_blank">Ionic Platform</a> and check out <a href="http://docs.ionic.io/docs/push-overview" target="_blank">Ionic Push</a>. We also have other services available.
-    </p>
+
+    <div class="list">
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Modalidade
+        </div>
+        <select>
+          <option>Academia</option>
+          <option selected>Gasolina</option>
+          <option>Alimenta&#231;&#227;o</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Descri&#231;&#227;o</span>
+        <input type="text" placeholder="Descri&#231;&#227;o">
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Data</span>
+        <input type="date"/>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Pagamento</span>
+        <input type="date"/>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Unidade
+        </div>
+        <select>
+          <option>Unidade</option>
+          <option selected>Litros</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Quantidade</span>
+        <input type="number"/>
+      </label>
+
+       <label class="item item-input item-stacked-label">
+        <span class="input-label">Valor Unit&#225;rio</span>
+        <input type="text"/>
+      </label>
+
+    </div>
+
   </ion-content>
 </ion-view>
