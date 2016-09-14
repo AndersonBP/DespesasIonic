@@ -34,21 +34,24 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('loginCtrl', function($scope, $http, $state) {
+.controller('loginCtrl', function($scope, $http, $state, $cordovaDevice) {
   $scope.settings = {
     enableFriends: true
   };
+
+  var device = $cordovaDevice.getDevice();
+  var uuid = $cordovaDevice.getUUID();
+
   $scope.user="";
   var headers = {
-    'Content-Type' : config.headers.Content-Type,
-    'Device' : window.device.uuid
+    'Device' : device.uuid  //window.device.uuid
   };
 
   var Url = "http://apidespesas.azurewebsites.net/api/Acesso/VerificaLogin";
 
   $scope.signIn = function () {
 
-     $http.post(Url,headers, $scope.user)
+     $http.post(Url, headers, $scope.user)
                 .success(function (data, status, headers, config) {
       $state.go('tab.dash');
                 })
