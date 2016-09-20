@@ -39,24 +39,25 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
   $scope.deviceId ="";
-  var device = $cordovaDevice.getDevice();
-  var uuid = $cordovaDevice.getUUID();
+//  var device = $cordovaDevice.getDevice();
+//  var uuid = $cordovaDevice.getUUID();
 
   $scope.user="";
-
-
-  var Url = "http://apidespesas.azurewebsites.net/api/Acesso/VerificaLogin";
+  var Url = "http://apidespesas.azurewebsites.net/api/Acesso/Entrar";
 
   $scope.signIn = function () {
-    $scope.deviceId = "adawdawdawd";
+    $scope.deviceId = "NVOJPB45SCSCOROJ";
 
-    var headers = {
-      'Device' : $cordovaDevice.getUUID()  //window.device.uuid
-    };
+    var config = {
+            headers : {
+              'Device' :  $scope.deviceId,
+              'Content-Type': 'application/json;charset=utf-8;'
+            }
+        }
 
-     $http.post(Url, headers, $scope.user)
+     $http.post(Url, $scope.user, config)
                 .success(function (data, status, headers, config) {
-      $state.go('tab.dash');
+    //  $state.go('tab.dash');
                 })
                 .error(function (data, status, header, config) {
                     $scope.ResponseDetails = "Data: " + data +

@@ -57,8 +57,8 @@ angular.module('starter.controllers', [])
 
      $http.post(Url, $scope.user, config)
                 .success(function (data, status, headers, config) {
-      $state.go('tab.dash');
-                })
+                    $state.go('tab.dash');
+                 })
                 .error(function (data, status, header, config) {
                     $scope.ResponseDetails = "Data: " + data +
                         "<hr />status: " + status +
